@@ -390,6 +390,39 @@ async function myFunc() {
 }
 ```
 
+```js
+// 根据输入框中文字或剪贴板中文字联网获取二维码图片，并自动粘贴示例
+async function main(str) {
+  if(str == "") {
+    str = $pb.readString();
+  }
+  const image = await getQR(str);
+  console.log("image: " + image);
+  $pb.writeImage(image);
+  $pb.paste();
+
+  return null;
+}
+
+async function getQR(str) {
+  const baseURL = "https://api.qrtool.cn/?text=" + str;
+
+  var headers = {
+      'accept': 'application/json;charset=UTF-8'
+  }
+
+  // 由于输入文字可能有中韩日文或标点等特殊字符，所以使用encodeURI()进行一次URL编码
+  const req = {
+      url: encodeURI(baseURL),
+      headers: headers
+  };
+  const result = await $http.get(req);
+  console.log("get result: "+ result);
+
+  return result;
+}
+```
+
 ### 五、其他一些示例
 
 #### 转为MD项目列表
