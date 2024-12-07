@@ -381,10 +381,10 @@ async function myFunc() {
   resultJson = JSON.parse(result); // 使用JSON.parse(string)来解析获取到的内容
   console.log("get json: "+ resultJson);
 
-  const resultObj = resultJson.origin;
+  const resultObj = resultJson.json.page_size;
   console.log("get some objects: "+ resultObj);
 
-  return resultJson;
+  return resultObj;
 }
 ```
 
