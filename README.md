@@ -31,6 +31,8 @@ async function main(str) {
 
 **编写过程与技巧**
 1. 如果有JavaScript或其他编程基础的可以手搓，没有基础的可以照猫画虎或借助GPT生成
+   * GPT提示词示例：`实现一个javascript的函数名为main的异步async函数，接收一个字符串参数，把接收到的字符串经过处理后返回。
+比如把接收的字符串经过以下处理，并返回。`
 2. 善用`console.log()`来打印变量并查看日志，[具体用法](#1-console)
 3. 编写过程：
 ```mermaid
