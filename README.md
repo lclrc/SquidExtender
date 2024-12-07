@@ -343,8 +343,10 @@ async function myFunc() {
 
   resultJson = JSON.parse(result); // 使用JSON.parse(obj)来解析获取到的内容
   console.log("get json: "+ resultJson);
+  const resultObj = resultJson["headers"];
+  console.log("get some objects: "+ resultObj);
 
-  return resultJson;
+  return resultObj;
 }
 ```
 
@@ -378,6 +380,9 @@ async function myFunc() {
 
   resultJson = JSON.parse(result); // 使用JSON.parse(obj)来解析获取到的内容
   console.log("get json: "+ resultJson);
+
+  const resultObj = resultJson["json"];
+  console.log("get some objects: "+ resultObj);
 
   return resultJson;
 }
