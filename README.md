@@ -48,6 +48,8 @@ async function main(str) {
       logs --> mod[修改脚本]
       mod --> test
 ```
+<img width="925" alt="zbhjnooj n0w" src="https://github.com/user-attachments/assets/958b3a4c-4ada-4401-9307-7aa739d2b8c3">
+
 
 ### 三、main函数的返回值
 
