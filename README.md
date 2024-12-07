@@ -148,7 +148,7 @@ async function main(str) {
     return {
       type: 'js',
       content: `
-$pb.writeString("${item}");
+$pb.writeString("${str}");
 $app.open("com.apple.mobilenotes");
 `,
     };
@@ -238,7 +238,7 @@ async function main(str) {
 // 假设传入str为https://www.bing.com。
 async function main(str) {
     // $url.open(str); // 在浏览器中打开bing
-    $url.openInApp(); // 在当前应用中打开bing
+    $url.openInApp(str); // 在当前应用中打开bing
 }
 ```
 
