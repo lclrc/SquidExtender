@@ -339,11 +339,11 @@ async function myFunc() {
       headers: headers
   };
   const result = await $http.get(req); // 因为$http.get为async异步函数，执行需要时间，所以需要await关键词修饰来等待返回
-  console.log("get result: "+ result);
+  console.log("get result: type: " + typeof result + "\n" + result);
 
-  resultJson = JSON.parse(result); // 使用JSON.parse(obj)来解析获取到的内容
+  resultJson = JSON.parse(result); // 使用JSON.parse(string)来解析获取到的内容
   console.log("get json: "+ resultJson);
-  const resultObj = resultJson["headers"];
+  const resultObj = resultJson.origin;
   console.log("get some objects: "+ resultObj);
 
   return resultObj;
@@ -376,12 +376,12 @@ async function myFunc() {
       body: JSON.stringify(data)
   };
   const result = await $http.post(req); // 因为$http.get为async异步函数，执行需要时间，所以需要await关键词修饰来等待返回
-  console.log("get result: "+ result);
+  console.log("get result: type: " + typeof result + "\n" + result);
 
-  resultJson = JSON.parse(result); // 使用JSON.parse(obj)来解析获取到的内容
+  resultJson = JSON.parse(result); // 使用JSON.parse(string)来解析获取到的内容
   console.log("get json: "+ resultJson);
 
-  const resultObj = resultJson["json"];
+  const resultObj = resultJson.origin;
   console.log("get some objects: "+ resultObj);
 
   return resultJson;
