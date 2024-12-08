@@ -323,6 +323,8 @@ async function main(str) {
 4. `$http.patch(dict)`：PATCH请求
 5. `$http.delete(dict)`：DELETE请求
 
+##### get请求示例
+
 ```js
 // get请求示例
 async function main(str) {
@@ -353,6 +355,8 @@ async function myFunc() {
   return resultObj;
 }
 ```
+
+##### post请求示例
 
 ```js
 // post请求示例
@@ -391,6 +395,8 @@ async function myFunc() {
   return resultObj;
 }
 ```
+
+##### 根据文字生成二维码并粘贴示例
 
 ```js
 // 根据输入框中文字或剪贴板中文字联网获取二维码图片，并自动粘贴示例
