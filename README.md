@@ -323,7 +323,7 @@ async function main(str) {
 4. `$http.patch(dict)`：PATCH请求
 5. `$http.delete(dict)`：DELETE请求
 
-##### get请求示例
+##### (1) get请求示例
 
 ```js
 // get请求示例
@@ -356,7 +356,7 @@ async function myFunc() {
 }
 ```
 
-##### post请求示例
+##### (2) post请求示例
 
 ```js
 // post请求示例
@@ -396,7 +396,7 @@ async function myFunc() {
 }
 ```
 
-##### 根据文字生成二维码并粘贴示例
+##### (3) 根据文字生成二维码并粘贴示例
 
 ```js
 // 根据输入框中文字或剪贴板中文字联网获取二维码图片，并自动粘贴示例
@@ -433,7 +433,7 @@ async function getQR(str) {
 
 ### 五、其他一些示例
 
-#### 转为MD项目列表
+#### 1. 转为MD项目列表
 比如：原始文本为`Hello World`，将输出`- Hello World`
 
 ```js
@@ -443,7 +443,7 @@ async function main(str) {
 }
 ```
 
-#### GitHub转换raw链接
+#### 2. GitHub转换raw链接
 比如：原始文本为`https://raw.githubusercontent.com/lclrc/CopyVault/main/README_EN.md`，将输出`https://github.com/blob/lclrc/CopyVault/main/README_EN.md`
 
 ```js
@@ -459,7 +459,7 @@ async function main(url) {
 }
 ```
 
-#### 转换为大写
+#### 3. 转换为大写
 比如：原始文本为`Hello World`，将输出`HELLO WORLD`
 
 ```js
@@ -474,7 +474,7 @@ async function main(str) {
   return strs;
 }
 ```
-#### 去掉全部空格
+#### 4. 去掉全部空格
 比如：原始文本为`Hello World`，将输出`HelloWorld`
 
 ```js
@@ -490,7 +490,7 @@ async function main(str) {
 }
 ```
 
-#### 去掉首尾空格
+#### 5. 去掉首尾空格
 比如：原始文本为`  Hello World `，将输出`Hello World`
 
 ```js
@@ -506,7 +506,7 @@ async function main(str) {
 }
 ```
 
-#### 中文排版(在中英字符、数字、标点和货币符号之间添加空格)
+#### 6. 中文排版(在中英字符、数字、标点和货币符号之间添加空格)
 > From 阿立
 
 ```js
@@ -519,7 +519,7 @@ async function main(text) {
 }
 ```
 
-#### 复制抖音评论去除用户名
+#### 7. 复制抖音评论去除用户名
 > From 阿立
 
 ```js
@@ -532,7 +532,7 @@ async function main(text) {
 }
 ```
 
-#### 哔哩哔哩RSS 复制UID
+#### 8. 哔哩哔哩RSS 复制UID
 > From 阿立
 
 ```js
@@ -550,7 +550,7 @@ async function main(text) {
 }
 ```
 
-#### 精简App Store分享链接
+#### 9. 精简App Store分享链接
 > From 阿立
 
 ```js
@@ -571,7 +571,7 @@ async function main(url) {
 }
 ```
 
-#### 删除多余的空行段落
+#### 10. 删除多余的空行段落
 > From 阿立
 
 ```js
