@@ -231,19 +231,28 @@ async function main(str) {
     $pb.writeString(str + " copied"); // 将处理后的字符串写入剪贴板
     const result = $pb.readString(); // 将剪贴板中文本赋值给result
     $pb.paste(); // 将执行粘贴动作
+    return null;
 }
 ```
 
 #### 3. $url
 
 1. `$url.open(str)`：在浏览器中打开传入的链接或url scheme，没有返回值。(前提：传入str为有效链接)
+
+```js
+// 假设传入str为https://www.bing.com。
+async function main(str) {
+    $url.open(str); // 在浏览器中打开bing
+    return null;
+}
+```
 2. `$url.openInApp(str)`：在当前应用中打开传入的链接，没有返回值。(前提：传入str为有效链接)
 
 ```js
 // 假设传入str为https://www.bing.com。
 async function main(str) {
-    // $url.open(str); // 在浏览器中打开bing
     $url.openInApp(str); // 在当前应用中打开bing
+    return null;
 }
 ```
 
@@ -255,6 +264,7 @@ async function main(str) {
 // 假设传入str为com.apple.mobilenotes
 async function main(str) {
     $app.open(str); // 打开备忘录
+    return null;
 }
 ```
 
