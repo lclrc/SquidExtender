@@ -237,7 +237,7 @@ async function main(str) {
 #### 3. $url
 
 1. `$url.open(str)`：在浏览器中打开传入的链接或url scheme，没有返回值。(前提：传入str为有效链接)
-2. `$url.openInApp(str)`：在当前应用中打开传入的链接或url scheme，没有返回值。(前提：传入str为有效链接)
+2. `$url.openInApp(str)`：在当前应用中打开传入的链接，没有返回值。(前提：传入str为有效链接)
 
 ```js
 // 假设传入str为https://www.bing.com。
