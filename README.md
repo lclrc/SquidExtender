@@ -113,7 +113,7 @@ async function main(str) {
 
 ##### 类型`type`可选项：
 
-> txt，app，url，urlInApp，js
+> txt，~~app~~，url，urlInApp，js
 
 1. `txt`：插入文本
 2. ~~`app`：打开应用。此时，content需要是某个应用的bundle identifier。比如：~~ 请使用打开url scheme代替。
@@ -139,13 +139,13 @@ async function main(str) {
 ```
 5. `js`：执行javascript脚本，content要求为js语句。比如：
 ```js
-// 执行后将先复制str的内容到剪贴板，再打开备忘录。(其中用到的$pb，$app等方法，后面介绍)
+// 执行后将先复制str的内容到剪贴板，再打开备忘录。(其中用到的$pb，$url等方法，后面介绍)
 async function main(str) {
     return {
       type: 'js',
       content: `
 $pb.writeString("${str}");
-$app.open("com.apple.mobilenotes");
+$url.openInApp("https://www.bing.com");
 `,
     };
 }
