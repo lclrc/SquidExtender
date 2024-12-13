@@ -137,19 +137,22 @@ async function main(str) {
     };
 }
 ```
-5. `js`：执行javascript脚本，content要求为js语句。比如：
+5. `js`：执行javascript脚本，content要求为js语句。最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。比如：
 ```js
-// 执行后将先复制str的内容到剪贴板，再打开备忘录。(其中用到的$pb，$url等方法，后面介绍)
+// 执行后将先复制str的内容到剪贴板，再在当前应用中Bing，最后插入处理后的文本插入到输入框。(其中用到的$pb，$url等方法，后面介绍)
 async function main(str) {
     return {
       type: 'js',
       content: `
 $pb.writeString("${str}");
 $url.openInApp("https://www.bing.com");
+"${str}" + " Processed";
 `,
     };
 }
 ```
+
+
 
 #### 4. 字典数组
 > 数组中只有一个字典元素时，将直接执行字典中定义的动作；否则，将弹出选择菜单，选择某一项后，执行该字典中定义的动作。
