@@ -113,7 +113,7 @@ async function main(str) {
 
 ##### 类型`type`可选项：
 
-> txt，~~app~~，url，urlInApp，js
+> txt，~~app~~，url，urlInApp，function，js
 
 1. `txt`：插入文本
 2. ~~`app`：打开应用。此时，content需要是某个应用的bundle identifier。比如：~~ 请使用打开url scheme代替。
@@ -137,7 +137,54 @@ async function main(str) {
     };
 }
 ```
-5. `js`：执行javascript脚本，content要求为js语句。最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。比如：
+5. `function`：执行javascript中某个async异步函数方法，content要求为函数名，最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。另外有一个可选字段args，类型为数组，可以传递该方法需要的参数。比如：
+```js
+// 执行后将弹出菜单，选择某一项后，将插入处理后的文本插入到输入框。
+async function main(str) {
+	return [{
+		type: 'function',
+		content: 'myFunc1',
+	},
+	{
+		type: 'function',
+		content: 'myFunc2',
+		args: ['text1', 'text2'],
+	}];
+}
+
+async function myFunc1() {
+    const res = await httpGetFunction();
+    return `This is myFunc1: ${res}`;
+}
+
+async function myFunc2(arg1, arg2) {
+    const res = await httpGetFunction();
+    return `This is myFunc2: ${res}, ${arg1}, ${arg2}`;
+}
+
+async function httpGetFunction() {
+  const baseURL = "https://httpbin.org/get";
+
+  var headers = {
+      'content-type': 'application/json;charset=UTF-8'
+  }
+
+  const req = {
+      url: baseURL,
+      headers: headers
+  };
+  const result = await $http.get(req); // 因为$http.get为async异步函数，执行需要时间，所以需要await关键词修饰来等待返回
+  console.log("get result: type: " + typeof result + "\n" + result);
+
+  resultJson = JSON.parse(result); // 使用JSON.parse(string)来解析获取到的内容
+  console.log("get json: "+ resultJson);
+  const resultObj = resultJson.origin;
+  console.log("get some objects: "+ resultObj);
+
+  return resultObj;
+}
+```
+6. `js`：执行javascript脚本，content要求为js语句。最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。比如：
 ```js
 // 执行后将先复制str的内容到剪贴板，再在当前应用中Bing，最后插入处理后的文本插入到输入框。(其中用到的$pb，$url等方法，后面介绍)
 async function main(str) {
