@@ -184,7 +184,7 @@ async function httpGetFunction() {
   return resultObj;
 }
 ```
-6. `js`：执行javascript脚本，content要求为js语句。最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。比如：
+6. `js`(建议改用function，将来此类型可能会废弃)：执行javascript脚本，content要求为js语句。最终执行结果支持[函数返回值](#三main函数的返回值)中的全部类型。比如：
 ```js
 // 执行后将先复制str的内容到剪贴板，再在当前应用中Bing，最后插入处理后的文本插入到输入框。(其中用到的$pb，$url等方法，后面介绍)
 async function main(str) {
