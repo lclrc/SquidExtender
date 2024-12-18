@@ -113,10 +113,19 @@ async function main(str) {
 
 ##### 类型`type`可选项：
 
-> txt，app(需版本3.5.1以上)，url，urlInApp，function，js
+> txt，app，url，urlInApp，function，js
 
 1. `txt`：插入文本
-2. `app`：打开应用。此时，content需要是某个应用的bundle identifier。比如：请使用打开url scheme代替。
+2. `app`：(需版本3.5.1以上)打开应用。此时，content需要是某个应用的bundle identifier。
+```js
+// 假设传入str为com.apple.mobilenotes，执行后将打开备忘录。
+async function main(str) {
+    return {
+      type: 'app',
+      content: str,
+    };
+}
+```
 3. `url`：在浏览器中打开链接。此时，content需要是有效的链接`http://`，`https://`或`url scheme`。比如：
 ```js
 // 假设传入str为https://www.bing.com，执行后将打开Bing。
@@ -297,9 +306,18 @@ async function main(str) {
 }
 ```
 
+
 #### 4. $app
 
-1. `$app.open(str)`：(需版本3.5.1以上)打开bundle identifier对应的应用，没有返回值。请使用打开url scheme代替
+1. `$app.open(str)`：打开bundle identifier对应的应用，没有返回值。
+
+```js
+// 假设传入str为com.apple.mobilenotes
+async function main(str) {
+    $app.open(str); // 打开备忘录
+}
+```
+
 
 #### 5. $md5
 
