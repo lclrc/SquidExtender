@@ -250,7 +250,7 @@ async function main(str) {
 ```
 
 ### 四、扩展方法介绍
-> 目前扩展有`$pb`(读写剪贴板)，`$url`(打开链接或url scheme)，`$app`(打开应用)，`$http`(联网请求)，`$md5`(MD5编码)，`$base64`(Base64编解码)，`console`(打印日志)，`util`(震动/声音反馈等)
+> 目前扩展有`$pb`(读写剪贴板)，`$url`(打开链接或url scheme)，`$app`(打开应用)，`$http`(联网请求)，`$md5`(MD5编码)，`$base64`(Base64编解码)，`console`(打印日志)，`util`(震动/声音反馈等)，`kb`(键盘相关方法)
 
 #### 1. console
 
@@ -492,6 +492,10 @@ async function getQR(str) {
   return result;
 }
 ```
+
+#### 9. $kb
+(1) `$kb.insert(str)`：将在输入框中输入str，没有返回值。(只建议对`$kb.return()`有需求的，使用此方法插入文本；否则，请直接使用[返回字符串](#1_字符串)或[txt类型的字典](3_字典)
+(2) `$kb.return()`：将执行“发送”或“搜索”或“换行”动作(由输入框决定)，没有返回值。
 
 ### 五、其他一些示例
 
