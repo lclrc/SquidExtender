@@ -494,13 +494,11 @@ async function getQR(str) {
 ```
 
 #### 9. $kb
-1. `$kb.insert(str)`：将在输入框中输入str，没有返回值。(只建议对`$kb.return()`有需求的，使用此方法插入文本；否则，请直接使用[返回字符串](#1_字符串)或[txt类型的字典](3_字典)
-2. `$kb.return()`：将执行“发送”或“搜索”或“换行”动作(由输入框决定)，没有返回值。
+1. `$kb.insertAndReturn(str)`(版本3.5.2及以上)：将在输入框中输入str并发送，没有返回值。(只建议对自动发送有需求的，使用此方法插入文本；否则，请直接使用[返回字符串](#1_字符串)或[txt类型的字典](3_字典)
 ```js
 // 插入反转后的字符串到输入框，并发送
 async function main(str) {
-    $kb.insert(str.split('').reverse().join(''));
-    $kb.return();
+    $kb.insertAndReturn(str.split('').reverse().join(''));
     return null;
 }
 ```
