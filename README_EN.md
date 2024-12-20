@@ -115,13 +115,22 @@ async function main(str) {
 
 ##### Type `type` optional:
 
-> txt, ~~app~~, url, urlInApp, function
+> txt, app, url, urlInApp, function
 
 1. `txt`: inserts text
-2. ~~`app`: open the app. In this case, content needs to be the bundle identifier of an app. e.g.~~ Please use open url scheme instead.
+2. `app`(version 3.5.1 and above): open the app. In this case, content needs to be the bundle identifier of an app. e.g.
+```js
+// if str is com.apple.mobilenotes，it will open Notes.
+async function main(str) {
+    return {
+      type: 'app',
+      content: str,
+    };
+}
+```
 3. `url`: open the link in the browser. In this case, content needs to be a valid link `http://`, `https://` or `some url scheme`. For example:
 ```js
-// 假设传入str为https://www.bing.com，执行后将打开Bing。
+// Assuming the incoming str is https://www.bing.com，it will open Bing。
 async function main(str) {
     return {
       type: 'url',
@@ -228,7 +237,7 @@ async function main(str) {
 ```
 
 ### IV. Introduction to extension methods
-> Currently the extensions are `$pb` (read/write clipboard), `$url` (open link or url scheme), ~~`$app` (open application)~~, `$http` (networking request), `$md5` (MD5 encoding), `$base64` (Base64 encoding/decoding), `console` (print logs), `util` (vibration / sound feedback, etc.)
+> Currently the extensions are `$pb` (read/write clipboard), `$url` (open link or url scheme), ~~`$app` (open application)~~, `$http` (networking request), `$md5` (MD5 encoding), `$base64` (Base64 encoding/decoding), `console` (print logs), `util` (vibration / sound feedback, etc.), `kb`(keyboard)
 
 #### 1. console
 
@@ -286,7 +295,14 @@ async function main(str) {
 
 #### 4. $app
 
-(1) ~~`$app.open(str)`：Open the application corresponding to the bundle identifier, no value is returned.~~  Please use open url scheme instead
+(1) `$app.open(str)`(version 3.5.1 and above)：Open the application corresponding to the bundle identifier, no value is returned.
+```js
+// if str is com.apple.mobilenotes，it will open Notes.
+async function main(str) {
+    $app.open(str);
+    return null;
+}
+```
 
 #### 5. $md5
 
@@ -459,6 +475,16 @@ async function getQR(str) {
   console.log("get result: "+ result);
 
   return result;
+}
+```
+
+#### 9. $kb
+1. `$kb.insertAndReturn(str)`(version 3.5.2 and above)：Will insert str in the input box and send it. (This method is only recommended when you want automatically send after insert texts; otherwise, use [return string](#1_string) or [dictionary of type txt](3_dictionary) directly.)
+```js
+// Insert the reversed string into the input box and send
+async function main(str) {
+    $kb.insertAndReturn(str.split('').reverse().join(''));
+    return null;
 }
 ```
 
