@@ -355,6 +355,23 @@ async function main(str) {
     return "executed";
 }
 ```
+2. `$util.jbpath(path)`：Process the incoming path path path and return the actual path string in the current jailbreak environment.
+   
+   For example, if the incoming path is `/var/mobile`：
+   
+   In the rootless environment, it will return `/private/preboot/xxxxx/dopamine-yyyy/procursus/var/mobile`，
+   
+   In the roothide environment, it will return `/var/mobile/Containers/Shared/AppGroup/.jbroot-xxxx/var/mobile`，
+   
+   In the rootfull environment, it will return`/var/mobile`。
+
+```js
+async function main(path) {
+    const result = $util.jbpath(path);
+    console.log(result);
+    return result;
+}
+```
 
 #### 8. $http
 > Because the network request can not be returned immediately, so you need to use the `await` keyword in the call to wait for the receipt of the requested data before continuing the execution, the use of reference to the sample
