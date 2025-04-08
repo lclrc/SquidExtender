@@ -370,6 +370,19 @@ async function main(str) {
     return "executed";
 }
 ```
+2. `$util.jbpath(path)`：对传入的路径path进行处理，返回当前越狱环境下的实际路径字符串。
+   比如：传入路径为`/var/mobile`：
+   rootless环境下将返回`/private/preboot/xxxxx/dopamine-yyyy/procursus/var/mobile`，
+   roothide环境下将返回`/var/mobile/Containers/Shared/AppGroup/.jbroot-xxxx/var/mobile`，
+   rootfull环境下将返回`/var/mobile`。
+
+```js
+async function main(path) {
+    const result = $util.jbpath(path);
+    console.log(result);
+    return result;
+}
+```
 
 #### 8. $http
 > 由于网络请求不能立即返回，所以需要在调用时，使用await关键词设置为等待收到请求的数据之后再继续执行，用法参考示例
