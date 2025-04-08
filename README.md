@@ -371,9 +371,13 @@ async function main(str) {
 }
 ```
 2. `$util.jbpath(path)`：对传入的路径path进行处理，返回当前越狱环境下的实际路径字符串。
+   
    比如：传入路径为`/var/mobile`：
+   
    rootless环境下将返回`/private/preboot/xxxxx/dopamine-yyyy/procursus/var/mobile`，
+   
    roothide环境下将返回`/var/mobile/Containers/Shared/AppGroup/.jbroot-xxxx/var/mobile`，
+   
    rootfull环境下将返回`/var/mobile`。
 
 ```js
